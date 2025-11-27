@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avocat NUME PRENUME - Cabinet Juridic Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #8b7355;
+            --accent: #c9a96e;
+            --light: #f8f6f3;
+            --white: #ffffff;
+            --grey: #6b6b6b;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            background: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 4px 30px var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2d2d2d 100%);
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,169,110,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(139,115,85,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201,169,110,0.15) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .hero-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            height: 1px;
+            width: 100%;
+            animation: slideLines 15s linear infinite;
+        }
+
+        .hero-line:nth-child(1) {
+            top: 20%;
+            animation-delay: 0s;
+            opacity: 0.3;
+        }
+
+        .hero-line:nth-child(2) {
+            top: 40%;
+            animation-delay: 5s;
+            opacity: 0.2;
+        }
+
+        .hero-line:nth-child(3) {
+            top: 60%;
+            animation-delay: 10s;
+            opacity: 0.4;
+        }
+
+        .hero-line:nth-child(4) {
+            top: 80%;
+            animation-delay: 7s;
+            opacity: 0.25;
+        }
+
+        @keyframes slideLines {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite;
+        }
+
+        .particle:nth-child(1) {
+            width: 3px;
+            height: 3px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 15s;
+        }
+
+        .particle:nth-child(2) {
+            width: 2px;
+            height: 2px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 3s;
+            animation-duration: 20s;
+        }
+
+        .particle:nth-child(3) {
+            width: 4px;
+            height: 4px;
+            top: 40%;
+            left: 30%;
+            animation-delay: 6s;
+            animation-duration: 18s;
+        }
+
+        .particle:nth-child(4) {
+            width: 2px;
+            height: 2px;
+            top: 70%;
+            left: 60%;
+            animation-delay: 9s;
+            animation-duration: 22s;
+        }
+
+        .particle:nth-child(5) {
+            width: 3px;
+            height: 3px;
+            top: 30%;
+            left: 90%;
+            animation-delay: 4s;
+            animation-duration: 16s;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(30px, -50px) scale(1.2);
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.6;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 2;
+            max-width: 900px;
+            position: relative;
+        }
+
+        .hero-corner {
+            position: absolute;
+            border: 2px solid var(--accent);
+            opacity: 0.4;
+            z-index: 2;
+        }
+
+        .hero-corner.top-left {
+            top: 15%;
+            left: 5%;
+            width: 60px;
+            height: 60px;
+            border-right: none;
+            border-bottom: none;
+            animation: cornerPulse 3s ease-in-out infinite;
+        }
+
+        .hero-corner.top-right {
+            top: 15%;
+            right: 5%;
+            width: 60px;
+            height: 60px;
+            border-left: none;
+            border-bottom: none;
+            animation: cornerPulse 3s ease-in-out infinite 1.5s;
+        }
+
+        .hero-corner.bottom-left {
+            bottom: 15%;
+            left: 5%;
+            width: 60px;
+            height: 60px;
+            border-right: none;
+            border-top: none;
+            animation: cornerPulse 3s ease-in-out infinite 0.75s;
+        }
+
+        .hero-corner.bottom-right {
+            bottom: 15%;
+            right: 5%;
+            width: 60px;
+            height: 60px;
+            border-left: none;
+            border-top: none;
+            animation: cornerPulse 3s ease-in-out infinite 2.25s;
+        }
+
+        @keyframes cornerPulse {
+            0%, 100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.7rem 2rem;
+            background: rgba(201, 169, 110, 0.1);
+            border: 1px solid var(--accent);
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--accent);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .hero-title-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(201,169,110,0.8);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.4s backwards;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 0;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease 0.6s backwards, titleGlow 4s ease-in-out infinite alternate;
+            position: relative;
+            display: inline-block;
+        }
+
+        @keyframes titleGlow {
+            0% {
+                filter: drop-shadow(0 0 10px rgba(201,169,110,0.3));
+            }
+            100% {
+                filter: drop-shadow(0 0 30px rgba(201,169,110,0.6));
+            }
+        }
+
+        .hero-title-accent {
+            display: block;
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 0.5rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease 0.8s backwards;
+        }
+
+        .hero-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 2rem auto;
+            animation: fadeIn 1s ease 1s backwards;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.9;
+            animation: fadeInUp 1s ease 1.2s backwards;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem auto;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1.4s backwards;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(201,169,110,0.2);
+            backdrop-filter: blur(10px);
+            min-width: 140px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            background: rgba(201,169,110,0.1);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--accent);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1.6s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.3rem 3rem;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            border: 2px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: fadeIn 1s ease 2s backwards;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            margin: 0 auto 0.5rem;
+            animation: scrollDown 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator p {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @keyframes scrollDown {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateY(15px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--grey);
+            font-size: 1.1rem;
+        }
+
+        .drept-penal {
+            padding: 6rem 4rem;
+            background: var(--light);
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .drept-penal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .drept-penal-card {
+            padding: 2.5rem;
+            background: var(--white);
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 3px 20px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .drept-penal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-left-color: var(--secondary);
+        }
+
+        .drept-penal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .drept-penal-card p {
+            color: var(--grey);
+            line-height: 1.8;
+        }
+
+        .despre {
+            padding: 6rem 4rem;
+            background: var(--white);
+        }
+
+        .despre-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .despre-content p {
+            color: var(--grey);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .despre-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .despre-item {
+            padding: 2rem;
+            background: var(--light);
+            border-top: 3px solid var(--accent);
+        }
+
+        .despre-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .despre-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--grey);
+        }
+
+        .despre-image {
+            height: 500px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .despre-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="50" fill="rgba(255,255,255,0.05)"/><circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+        }
+
+        .despre-badge {
+            padding: 1.5rem 2.5rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            z-index: 1;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog {
+            padding: 6rem 4rem;
+            background: var(--light);
+        }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            overflow: hidden;
+            box-shadow: 0 5px 30px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg"><rect width="50" height="50" fill="rgba(255,255,255,0.05)"/><circle cx="25" cy="25" r="20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+        }
+
+        .blog-content {
+            padding: 3rem;
+        }
+
+        .blog-date {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .blog-card p {
+            color: var(--grey);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--accent);
+        }
+
+        .read-more:hover::after {
+            margin-left: 1rem;
+        }
+
+        .contact {
+            padding: 6rem 4rem;
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(201, 169, 110, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .contact-item-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .contact-item-content p {
+            margin: 0;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(201, 169, 110, 0.3);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+        }
+
+        .submit-button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        footer {
+            background: #0a0a0a;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-title-accent {
+                font-size: 1rem;
+                letter-spacing: 6px;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .hero-stat {
+                min-width: 120px;
+                padding: 1.2rem 1.5rem;
+            }
+
+            .hero-stat-number {
+                font-size: 2rem;
+            }
+
+            .drept-penal, .despre, .blog, .contact {
+                padding: 4rem 2rem;
+            }
+
+            .despre-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .drept-penal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+
+            .hero-corner {
+                display: none;
+            }
+
+            .hero-badge {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-title-accent {
+                font-size: 0.85rem;
+                letter-spacing: 4px;
+                margin-top: 0.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.85rem;
+                letter-spacing: 3px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+                margin: 2rem auto;
+            }
+
+            .hero-stat {
+                min-width: 100px;
+                padding: 1rem 1.2rem;
+            }
+
+            .hero-stat-number {
+                font-size: 1.8rem;
+            }
+
+            .hero-stat-label {
+                font-size: 0.7rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 1.2rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .scroll-indicator {
+                bottom: 2rem;
+            }
+
+            .scroll-indicator span {
+                height: 30px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .drept-penal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .despre-info {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .despre-image {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-title-accent {
+                font-size: 0.75rem;
+                letter-spacing: 3px;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+            }
+
+            .hero-stat {
+                min-width: auto;
+                padding: 0.8rem 0.5rem;
+            }
+
+            .hero-stat-number {
+                font-size: 1.5rem;
+            }
+
+            .hero-stat-label {
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .drept-penal-card,
+            .despre-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">NUME PRENUME</div>
+            <ul class="nav-links">
+                <li><a href="#acasa">Acasă</a></li>
+                <li><a href="#drept-penal">Drept Penal</a></li>
+                <li><a href="#despre">Despre Mine</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="acasa">
+        <div class="hero-lines">
+            <div class="hero-line"></div>
+            <div class="hero-line"></div>
+            <div class="hero-line"></div>
+            <div class="hero-line"></div>
+        </div>
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-corner top-left"></div>
+        <div class="hero-corner top-right"></div>
+        <div class="hero-corner bottom-left"></div>
+        <div class="hero-corner bottom-right"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">Avocat ORAS</div>
+            
+            <div class="hero-title-wrapper">
+                <div class="hero-subtitle">Avocat Specializat</div>
+                <h1 class="hero-title">
+                    NUME PRENUME
+                    <span class="hero-title-accent">Drept Penal & Civil</span>
+                </h1>
+            </div>
+            
+            <div class="hero-divider"></div>
+            
+            <p class="hero-description">
+                Excelență juridică și apărare strategică în cazuri complexe. Experiență dovedită în drept penal, civil și comercial. Protejăm drepturile și interesele dumneavoastră cu profesionalism și dedicare totală.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">15+</span>
+                    <span class="hero-stat-label">Ani Practică</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">500+</span>
+                    <span class="hero-stat-label">Cazuri Câștigate</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">98%</span>
+                    <span class="hero-stat-label">Rată Succes</span>
+                </div>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#contact" class="cta-button">Consultație Gratuită</a>
+                <a href="#drept-penal" class="cta-button secondary">Drept Penal</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span></span>
+            <p>Derulați</p>
+        </div>
+    </section>
+
+    <section class="drept-penal reveal" id="drept-penal">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-subtitle">Specializare</div>
+                <h2 class="section-title">Drept Penal</h2>
+                <p class="section-description">Apărare penală profesionistă și strategii juridice personalizate pentru fiecare cauză. Experiență vastă în toate aspectele dreptului penal.</p>
+            </div>
+            
+            <div class="drept-penal-grid">
+                <div class="drept-penal-card">
+                    <h3>Drept Penal</h3>
+                    <p>Apărare penală specializată în toate fazele procesului penal. Reprezentare profesionistă în fața instanțelor, cu strategii juridice personalizate pentru fiecare cauză de drept penal.</p>
+                </div>
+                <div class="drept-penal-card">
+                    <h3>Drept Penal</h3>
+                    <p>Apărare penală specializată în toate fazele procesului penal. Reprezentare profesionistă în fața instanțelor, cu strategii juridice personalizate pentru fiecare cauză de drept penal.</p>
+                </div>
+                <div class="drept-penal-card">
+                    <h3>Drept Penal</h3>
+                    <p>Apărare penală specializată în toate fazele procesului penal. Reprezentare profesionistă în fața instanțelor, cu strategii juridice personalizate pentru fiecare cauză de drept penal.</p>
+                </div>
+                <div class="drept-penal-card">
+                    <h3>Drept Penal</h3>
+                    <p>Apărare penală specializată în toate fazele procesului penal. Reprezentare profesionistă în fața instanțelor, cu strategii juridice personalizate pentru fiecare cauză de drept penal.</p>
+                </div>
+                <div class="drept-penal-card">
+                    <h3>Drept Penal</h3>
+                    <p>Apărare penală specializată în toate fazele procesului penal. Reprezentare profesionistă în fața instanțelor, cu strategii juridice personalizate pentru fiecare cauză de drept penal.</p>
+                </div>
+                <div class="drept-penal-card">
+                    <h3>Drept Penal</h3>
+                    <p>Apărare penală specializată în toate fazele procesului penal. Reprezentare profesionistă în fața instanțelor, cu strategii juridice personalizate pentru fiecare cauză de drept penal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="despre reveal" id="despre">
+        <div class="despre-container">
+            <div class="despre-content">
+                <div class="section-subtitle">Despre</div>
+                <h2 class="section-title">NUME PRENUME</h2>
+                <p>Cu peste 15 ani de experiență în practică juridică, am dedicat cariera mea apărării drepturilor clienților în cazuri complexe de drept penal și civil.</p>
+                <p>Abordarea mea se bazează pe cunoaștere profundă a legii, strategie juridică inovatoare și dedicare totală față de fiecare client. Fiecare caz este tratat cu atenție maximă la detalii, iar succesul clienților reprezintă măsura excelenței mele profesionale.</p>
+                <p>Specializarea în drept penal mi-a permis să dezvolt o expertiză unică în apărarea penală, de la infracțiuni minore până la cazuri complexe de criminalitate economică și organizată.</p>
+                
+                <div class="despre-info">
+                    <div class="despre-item">
+                        <h4>Educație</h4>
+                        <p>Licență în Drept - Universitatea de Prestigiu</p>
+                        <p>Master în Drept Penal</p>
+                    </div>
+                    <div class="despre-item">
+                        <h4>Membru</h4>
+                        <p>Baroul ORAS</p>
+                        <p>Asociații Profesionale Juridice</p>
+                    </div>
+                </div>
+            </div>
+            <div class="despre-image">
+                <div class="despre-badge">15+ Ani Experiență</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog reveal" id="blog">
+        <div class="blog-container">
+            <div class="section-header">
+                <div class="section-subtitle">Actualități</div>
+                <h2 class="section-title">Blog Juridic</h2>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">15 Noiembrie 2024</div>
+                        <h3>Articol Juridic</h3>
+                        <p>Informații generale despre aspecte juridice importante. Articol detaliat cu sfaturi și analize pe teme de drept.</p>
+                        <a href="#" class="read-more">Citește mai mult</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">8 Noiembrie 2024</div>
+                        <h3>Articol Juridic</h3>
+                        <p>Informații generale despre aspecte juridice importante. Articol detaliat cu sfaturi și analize pe teme de drept.</p>
+                        <a href="#" class="read-more">Citește mai mult</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact reveal" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contact</h2>
+                <p>Programați o consultație și descoperiți cum vă putem ajuta să vă protejați drepturile și interesele.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">L</div>
+                        <div class="contact-item-content">
+                            <h4>Locație</h4>
+                            <p>LOCATIE</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">T</div>
+                        <div class="contact-item-content">
+                            <h4>Telefon</h4>
+                            <p>TELEFON</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">E</div>
+                        <div class="contact-item-content">
+                            <h4>Email</h4>
+                            <p>contact@avocat.ro</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">P</div>
+                        <div class="contact-item-content">
+                            <h4>Program</h4>
+                            <p>Luni - Vineri: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nume Complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesaj</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">TRIMITE MESAJ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">NUME PRENUME</div>
+            <ul class="footer-links">
+                <li><a href="#acasa">Acasă</a></li>
+                <li><a href="#drept-penal">Drept Penal</a></li>
+                <li><a href="#despre">Despre</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p>&copy; 2024 Cabinet Avocat NUME PRENUME. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal();
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mulțumim pentru mesaj! Vă vom contacta în cel mai scurt timp.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
